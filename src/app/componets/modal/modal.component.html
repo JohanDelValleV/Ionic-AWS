@@ -1,5 +1,5 @@
 <ion-toolbar>
-	<ion-title>{{ title }} Student</ion-title>
+	<ion-title>Student</ion-title>
 	<ion-buttons slot="primary">
 		<ion-button (click)="dismiss()">
 			Close
@@ -26,7 +26,10 @@
 				</ion-item>
 				<ion-item>
 					<ion-label position="floating">Gender</ion-label>
-					<ion-input required [(ngModel)]="gender" type="text"></ion-input>
+					<ion-select placeholder="Select One" required [(ngModel)]="gender" [selectedText]="gender">
+						<ion-select-option value="Male">Male</ion-select-option>
+						<ion-select-option value="Female">Female</ion-select-option>
+					</ion-select>
 				</ion-item>
 				<ion-item>
 					<ion-label position="floating">Address</ion-label>
@@ -34,7 +37,19 @@
 				</ion-item>
 				<ion-item>
 					<ion-label position="floating">Career</ion-label>
-					<ion-input required [(ngModel)]="career" type="text"></ion-input>
+					<ion-select
+						[(ngModel)]="career"
+						[selectedText]="_career"
+						required
+						placeholder="Select One"
+					>
+						<ion-select-option
+							*ngFor="let item of listCareers"
+							value="{{ item.id }}"
+						>
+							{{ item.name }}
+						</ion-select-option>
+					</ion-select>
 				</ion-item>
 			</ion-list>
 		</ion-col>
@@ -44,10 +59,14 @@
 		<ion-col size="2"></ion-col>
 		<ion-col size="8">
 			<ng-container *ngIf="edit; else elseTemplate">
-				<ion-button color="primary" (click)="updtaeUser(id)" expand="full">Edit</ion-button>
+				<ion-button color="primary" (click)="updtaeUser(id)" expand="full"
+					>Edit</ion-button
+				>
 			</ng-container>
 			<ng-template #elseTemplate>
-				<ion-button color="primary" (click)="createUser()" expand="full">Create</ion-button>
+				<ion-button color="primary" (click)="createUser()" expand="full"
+					>Create</ion-button
+				>
 			</ng-template>
 		</ion-col>
 		<ion-col size="2"></ion-col>

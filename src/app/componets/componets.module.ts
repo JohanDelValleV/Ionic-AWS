@@ -3,20 +3,21 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 import { ModalComponent } from '../componets/modal/modal.component';
+import { CareerModalComponent } from '../componets/career-modal/career-modal.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ModalComponent],
+  declarations: [ModalComponent, CareerModalComponent],
   imports: [
     CommonModule,
     IonicModule,
     FormsModule
   ],
   exports: [
-    ModalComponent
+    ModalComponent, CareerModalComponent
   ],
   entryComponents: [
-    ModalComponent
+    ModalComponent, CareerModalComponent
   ]
 })
 export class ComponetsModule { }

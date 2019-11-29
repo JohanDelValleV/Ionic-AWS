@@ -1,0 +1,39 @@
+<ion-toolbar>
+	<ion-title>Career</ion-title>
+	<ion-buttons slot="primary">
+		<ion-button (click)="dismiss()">
+			Close
+		</ion-button>
+	</ion-buttons>
+</ion-toolbar>
+
+<ion-content class="ion-padding">
+	<ion-row>
+		<ion-col size="2"></ion-col>
+		<ion-col size="8">
+			<ion-list>
+				<ion-item>
+					<ion-label position="floating">Name</ion-label>
+					<ion-input required [(ngModel)]="name" type="text"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label position="floating">Slug</ion-label>
+					<ion-input required [(ngModel)]="slug" type="text"></ion-input>
+				</ion-item>
+			</ion-list>
+		</ion-col>
+		<ion-col size="2"></ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col size="2"></ion-col>
+		<ion-col size="8">
+			<ng-container *ngIf="edit; else elseTemplate">
+				<ion-button color="primary" (click)="updtaeCareer(id)" expand="full">Edit</ion-button>
+			</ng-container>
+			<ng-template #elseTemplate>
+				<ion-button color="primary" (click)="createCareer()" expand="full">Create</ion-button>
+			</ng-template>
+		</ion-col>
+		<ion-col size="2"></ion-col>
+	</ion-row>
+</ion-content>

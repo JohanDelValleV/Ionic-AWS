@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NavParams, ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 
@@ -10,7 +10,8 @@ import { ApiService } from '../../services/api.service';
 })
 export class ModalComponent implements OnInit {
 
-  constructor(private navParams: NavParams, private modalCtrl: ModalController, private apiService: ApiService) { }
+  listCareers: any = [];
+  constructor(private modalCtrl: ModalController, private apiService: ApiService) { }
 
   @Input() name: string;
   @Input() lastName: string;
@@ -19,9 +20,12 @@ export class ModalComponent implements OnInit {
   @Input() address: string;
   @Input() career: string;
   @Input() edit: boolean = false;
+  @Input() _career: string;
+  @Input() _slug: string;
 
 
   ngOnInit() {
+    this.getCareers();
   }
 
 
@@ -58,6 +62,12 @@ export class ModalComponent implements OnInit {
     this.apiService.editUser(id, form.value).subscribe(response => {
       console.log(response);
       this.dismiss();
+    });
+  }
+
+  getCareers() {
+    this.apiService.getCareers().subscribe((response) => {
+      this.listCareers = response;
     });
   }
 

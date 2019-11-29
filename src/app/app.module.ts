@@ -13,11 +13,12 @@ import { AppComponent } from './app.component';
 
 import { ComponetsModule } from '../app/componets/componets.module';
 import { environment } from '../environments/environment';
+import { PipesModule } from '../app/pipes/pipes.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), HttpClientModule, AppRoutingModule, ComponetsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), HttpClientModule, AppRoutingModule, ComponetsModule, PipesModule],
   providers: [
     StatusBar,
     SplashScreen,
