@@ -11,6 +11,7 @@ import { ApiService } from '../../services/api.service';
 export class CareerModalComponent implements OnInit {
 
   constructor(private navParams: NavParams, private modalCtrl: ModalController, private apiService: ApiService) { }
+  @Input() id: number;
   @Input() name: string;
   @Input() slug: string;
   @Input() edit: boolean = false;

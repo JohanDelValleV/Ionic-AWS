@@ -12,7 +12,7 @@ export class ModalComponent implements OnInit {
 
   listCareers: any = [];
   constructor(private modalCtrl: ModalController, private apiService: ApiService) { }
-
+  @Input() id: number;
   @Input() name: string;
   @Input() lastName: string;
   @Input() age: number;
