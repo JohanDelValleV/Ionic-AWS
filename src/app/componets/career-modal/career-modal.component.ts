@@ -30,7 +30,6 @@ export class CareerModalComponent implements OnInit {
       slug: new FormControl(this.slug, Validators.nullValidator),
     });
     this.apiService.createCareer(form.value).subscribe(response => {
-      console.log(response);
       this.dismiss();
     });
   }
@@ -41,7 +40,6 @@ export class CareerModalComponent implements OnInit {
       slug: new FormControl(this.slug, Validators.nullValidator),
     });
     this.apiService.editCareer(id, form.value).subscribe(response => {
-      console.log(response);
       this.dismiss();
     });
   }

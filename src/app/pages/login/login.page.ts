@@ -17,7 +17,6 @@ export class LoginPage implements OnInit {
 
   login() {
     this.api.login(this.username, this.password).subscribe(response => {
-      console.log(response);
       this.api.setSession(response);
       this.router.navigate(['/home']).then(() => {
         window.location.reload();

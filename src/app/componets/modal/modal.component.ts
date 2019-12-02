@@ -45,7 +45,6 @@ export class ModalComponent implements OnInit {
       career: new FormControl(this.career, Validators.nullValidator),
     });
     this.apiService.createUser(form.value).subscribe(response => {
-      console.log(response);
       this.dismiss();
     });
   }
@@ -60,7 +59,6 @@ export class ModalComponent implements OnInit {
       career: new FormControl(this.career, Validators.nullValidator),
     });
     this.apiService.editUser(id, form.value).subscribe(response => {
-      console.log(response);
       this.dismiss();
     });
   }

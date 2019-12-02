@@ -76,21 +76,18 @@ export class HomePage implements OnInit {
 
   getUsers() {
     this.apiService.getUsers().subscribe(response => {
-      console.log(response);
       this.listUsers = response;
     });
   }
 
   editUser(id: number) {
     this.apiService.getUser(id).subscribe(response => {
-      console.log(response);
       this.editModal(response);
     });
   }
 
   deleteUser(id: number) {
     this.apiService.deleteUser(id).subscribe(response => {
-      console.log(response);
       this.getUsers();
     });
   }
@@ -118,21 +115,18 @@ export class HomePage implements OnInit {
 
   getCareers() {
     this.apiService.getCareers().subscribe(response => {
-      console.log(response);
       this.listCareers = response;
     });
   }
 
   editCareer(id: number) {
     this.apiService.getCareer(id).subscribe(response => {
-      console.log(response);
       this.editCareerModal(response);
     });
   }
 
   deleteCareer(id: number) {
     this.apiService.deleteCareer(id).subscribe(response => {
-      console.log(response);
     });
     this.getCareers();
   }
